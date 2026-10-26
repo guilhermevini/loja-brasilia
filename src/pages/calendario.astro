@@ -1,0 +1,183 @@
+---
+import Base from '../layouts/Base.astro';
+import TopoPagina from '../components/TopoPagina.astro';
+import { calendario, nomesCorpos } from '../data/calendario';
+import { site } from '../data/site';
+
+const meses = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+
+const porMes = (eventos: (typeof calendario)[number]['eventos']) => {
+  const grupos = new Map<number, typeof eventos>();
+  for (const e of [...eventos].sort((a, b) => a.data.localeCompare(b.data))) {
+    const mes = Number(e.data.slice(5, 7)) - 1;
+    grupos.set(mes, [...(grupos.get(mes) ?? []), e]);
+  }
+  return [...grupos.entries()];
+};
+---
+
+<Base titulo="Calendário" descricao="Datas das sessões da Loja Brasília nº 1693 e dos corpos associados, sempre às segundas-feiras, às 19h.">
+  <TopoPagina
+    ornamento="pavimento"
+    sobretitulo="Sessões"
+    titulo="Calendário"
+    lead={`As sessões acontecem às ${site.sessoes.toLowerCase()}, às ${site.horario}, na Rua Augusta, 719. Irmãos visitantes devem combinar a visita com antecedência.`}
+  />
+
+  <section class="secao calendario">
+    <div class="container">
+      <label class="filtro">
+        <input type="checkbox" id="associados" />
+        <span>Mostrar também Arco Real, Marca e Nautas</span>
+      </label>
+      <ul class="legenda" aria-label="Legenda">
+        <li class="selo" data-corpo="capitulo">{nomesCorpos.capitulo}</li>
+        <li class="selo" data-corpo="marca">{nomesCorpos.marca}</li>
+        <li class="selo" data-corpo="nautas">{nomesCorpos.nautas}</li>
+      </ul>
+
+      {
+        calendario.map(({ ano, recesso, eventos }) => (
+          <div class="ano" data-ano={ano}>
+            <div class="ano-topo">
+              <h2>{ano}</h2>
+              <p>{recesso}</p>
+            </div>
+            <div class="meses">
+              {porMes(eventos).map(([mes, lista]) => (
+                <div class={`mes ${lista.every((e) => e.corpo !== 'loja') ? 'so-associados' : ''}`}>
+                  <h3>{meses[mes]}</h3>
+                  <ul>
+                    {lista.map((e) => (
+                      <li class:list={['evento', e.corpo !== 'loja' && 'associado']} data-data={e.data} data-corpo={e.corpo}>
+                        <span class="dia">{e.data.slice(8, 10)}</span>
+                        <span class="desc">
+                          {e.corpo === 'loja' ? 'Sessão' : nomesCorpos[e.corpo]}
+                          {e.tipo && <span class="tipo">{e.tipo}</span>}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+
+      <p class="nota">Datas sujeitas a alteração. Em caso de dúvida, confirme com a Loja antes da visita.</p>
+    </div>
+  </section>
+</Base>
+
+<script>
+  // Esmaece as datas que já passaram e destaca a próxima sessão da Loja.
+  const hoje = new Date().toLocaleDateString('sv-SE'); // AAAA-MM-DD no fuso local
+  let proxima: Element | null = null;
+  for (const el of document.querySelectorAll<HTMLElement>('.evento')) {
+    const data = el.dataset.data ?? '';
+    if (data < hoje) el.classList.add('passado');
+    else if (!proxima && !el.classList.contains('associado')) proxima = el;
+  }
+  if (proxima) {
+    proxima.classList.add('proxima');
+    const rotulo = (proxima as HTMLElement).dataset.data === hoje ? 'Hoje' : 'Próxima';
+    proxima.querySelector('.desc')?.insertAdjacentHTML('beforeend', `<span class="tipo">${rotulo}</span>`);
+  }
+  for (const ano of document.querySelectorAll('.ano')) {
+    const eventos = ano.querySelectorAll('.evento');
+    if (eventos.length && [...eventos].every((e) => e.classList.contains('passado'))) ano.classList.add('encerrado');
+  }
+</script>
+
+<style>
+  .filtro {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.95rem;
+    color: var(--texto-suave);
+    cursor: pointer;
+    margin-bottom: 1rem;
+  }
+  .filtro input { accent-color: var(--azul); width: 1.05rem; height: 1.05rem; }
+
+  .calendario:has(#associados:not(:checked)) .associado,
+  .calendario:has(#associados:not(:checked)) .so-associados { display: none; }
+
+  .ano { margin-top: 3rem; }
+  .ano.encerrado { display: none; }
+  .ano-topo {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem 2rem;
+    border-bottom: 2px solid var(--azul);
+    padding-bottom: 0.75rem;
+    margin-bottom: 2rem;
+  }
+  .ano-topo h2 { margin: 0; }
+  .ano-topo p { margin: 0; color: var(--texto-suave); font-size: 0.95rem; }
+
+  .meses {
+    display: grid;
+    gap: 2.5rem 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 13rem), 1fr));
+  }
+  .mes h3 {
+    margin: 0 0 0.75rem;
+    font-size: 1.1rem;
+  }
+  ul { list-style: none; margin: 0; padding: 0; }
+  .evento {
+    display: flex;
+    align-items: baseline;
+    gap: 0.9rem;
+    padding: 0.45rem 0;
+    border-bottom: 1px solid var(--linha);
+    transition: opacity 0.3s var(--ease);
+  }
+  .dia {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    color: var(--azul);
+    font-variant-numeric: tabular-nums;
+    min-width: 1.6rem;
+  }
+  .desc { font-size: 0.925rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; }
+  .associado .dia,
+  .associado .desc { color: var(--cor-corpo); }
+  .associado .desc::before {
+    content: '';
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: var(--cor-corpo);
+    flex: none;
+  }
+  .legenda {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    font-size: 0.85rem;
+    margin: 0 0 1rem;
+  }
+  .calendario:has(#associados:not(:checked)) .legenda { display: none; }
+  .desc :global(.tipo) {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ouro);
+  }
+  .passado { opacity: 0.4; }
+  .proxima {
+    background: var(--azul-claro);
+    margin-inline: -0.6rem;
+    padding-inline: 0.6rem;
+    border-radius: var(--raio);
+    border-bottom-color: transparent;
+  }
+  .nota { margin-top: 3rem; font-size: 0.875rem; color: var(--texto-suave); }
+</style>

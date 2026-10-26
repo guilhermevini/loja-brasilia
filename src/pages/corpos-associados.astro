@@ -1,0 +1,135 @@
+---
+import Base from '../layouts/Base.astro';
+import TopoPagina from '../components/TopoPagina.astro';
+
+const fundadoresCapitulo = [
+  ['Jarbas George Marinho', 'PZ 1961'],
+  ['Pedro Bório', 'PZ 1962'],
+  ['José Moscato', 'PZ 1965'],
+  ['Antonio de Souza', 'PA 1967'],
+  ['Orlando Astorino', 'Ex. C. 1959'],
+  ['Alberto dos Santos', 'Ex. C. 1959'],
+  ['Messias Sauerbronn de Toledo', 'Ex. C. 1960'],
+];
+---
+
+<Base titulo="Arco Real, Marca e Nautas" descricao="O Capítulo Brasília de Maçons do Arco Real nº 50, a Loja Brasília de Mestres Maçons da Marca nº 36 e a Loja de Nautas da Arca Real, patrocinados pela Loja Brasília nº 1693.">
+  <TopoPagina
+    ornamento="pedra"
+    sobretitulo="Corpos associados"
+    titulo="Arco Real, Marca e Nautas"
+    lead="Depois dos três graus simbólicos, o Mestre Maçom pode seguir adiante em outras ordens da tradição inglesa. Três delas se reúnem no templo da Loja Brasília e reúnem boa parte dos mesmos Irmãos."
+  />
+
+  <nav class="container atalhos" aria-label="Nesta página">
+    <a class="selo" data-corpo="capitulo" href="#arco-real">Capítulo do Arco Real</a>
+    <a class="selo" data-corpo="marca" href="#marca">Loja de Marca</a>
+    <a class="selo" data-corpo="nautas" href="#nautas">Nautas da Arca Real</a>
+  </nav>
+
+  <section class="secao corpo" id="arco-real" data-corpo="capitulo">
+    <div class="container prosa">
+      <span class="sobretitulo">Fundado em 1974 · Carta Patente nº 50</span>
+      <h2 class="primeiro">Capítulo Brasília de Maçons do Arco Real</h2>
+      <p class="intro">
+        Na tradição inglesa, o Arco Real é o quarto e último estágio da “Maçonaria Pura e Antiga”, definida no Ato de
+        União de 1813. Na cerimônia de Exaltação, o Mestre Maçom completa a jornada iniciada no Terceiro Grau. Pode
+        ingressar qualquer Mestre Maçom de uma potência regular, e os Maçons do Arco Real se reúnem em Capítulos.{' '}
+        <a href=\"https://www.ugle.org.uk/about-us/royal-arch" target="_blank" rel="noopener">Saiba mais na UGLE</a>.
+      </p>
+      <p>
+        O Capítulo Brasília foi fundado em 21 de maio de 1974 por sete membros da Loja Brasília, todos exaltados no
+        Campos Salles Chapter nº 5565, da tradição inglesa.
+      </p>
+      <p>
+        Naquela época não havia no Brasil nenhum Supremo Grande Capítulo, nem ligado ao GOB nem às Grandes Lojas, e
+        nenhum outro capítulo brasileiro. Os maçons das lojas do GOSP/GOB que se interessavam pelo Arco Real eram
+        exaltados nos capítulos ingleses e ali permaneciam. Por isso o Capítulo Brasília funcionou sozinho, sem
+        reconhecimento formal, durante mais de três décadas. Mesmo assim, ficou conhecido pela qualidade da sua
+        ritualística.
+      </p>
+      <p>
+        O cenário mudou em fevereiro de 2003, com a consagração do Supremo Grande Capítulo de Maçons do Arco Real do
+        Brasil, vinculado ao GOB. As tratativas para o reconhecimento estenderam-se de 2006 a 2007, com o apoio do
+        Grão-Mestre Cláudio Roque e do Grão-Mestre Adjunto Marcos José da Silva. Em 23 de abril de 2007 o Capítulo
+        Brasília foi finalmente reconhecido e recebeu a Carta Patente nº 50.
+      </p>
+      <p>O Capítulo se reúne na terceira segunda-feira de cada mês.</p>
+
+      <details>
+        <summary>Os sete fundadores do Capítulo</summary>
+        <table class="tabela">
+          <tbody>
+            {fundadoresCapitulo.map(([nome, grau]) => <tr><td>{grau}</td><td>{nome}</td></tr>)}
+          </tbody>
+        </table>
+      </details>
+    </div>
+  </section>
+
+  <section class="secao secao-alt corpo" id="marca" data-corpo="marca">
+    <div class="container prosa">
+      <span class="sobretitulo">Consagrada em 2018 · nº 36</span>
+      <h2 class="primeiro">Loja Brasília de Mestres Maçons da Marca</h2>
+      <p class="intro">
+        O Grau de Mestre Maçom da Marca é aberto a Mestres Maçons e, cronologicamente, se situa logo após o Segundo
+        Grau. Seu nome vem do costume dos pedreiros de marcar as pedras que talhavam, para receber o salário pelo
+        trabalho, e sua lenda gira em torno do Salmo 118: “a pedra que os edificadores rejeitaram tornou-se a pedra
+        angular”. Há registros de marcas de pedreiros em atas escocesas de 1599. Na Inglaterra, o grau aparece em 1769,
+        e a Grande Loja de Mestres Maçons da Marca da Inglaterra e Gales reuniu-se pela primeira vez em 1856.{' '}
+        <a href=\"https://www.markmasonshall.org/orders/mmm" target="_blank" rel="noopener">Saiba mais no Mark Masons' Hall</a>.
+      </p>
+      <p>
+        Em 2018 muitos Irmãos da Loja Brasília e do Capítulo já participavam da Maçonaria da Marca, a maioria na Loja
+        Fênix de Mestres Maçons da Marca. Com a fila de candidatos crescendo e a Loja Fênix reduzindo pela metade suas
+        sessões de avançamento, voltou à pauta uma ideia antiga: fundar uma Loja de Marca própria.
+      </p>
+      <p>
+        A sugestão ganhou forma numa reunião com o Grão-Mestre Manoel Oliveira Leite, da Grande Loja de Mestres
+        Maçons da Marca do Brasil. A Loja Brasília criou uma comissão para o projeto, coordenada pelo Ir. Edson Bonan,
+        e os interessados em ser fundadores foram avançados na Loja Madras. O grupo fundador reuniu 23 Irmãos: 12 da
+        Loja Brasília, 7 do Capítulo Brasília e 4 convidados.
+      </p>
+      <p>
+        Como a Loja Brasília ocupa o templo em pelo menos três segundas-feiras por mês e o Capítulo na terceira, a
+        Loja de Marca passou a se reunir nos meses que têm cinco segundas-feiras e também em julho. A consagração
+        aconteceu justamente numa quinta segunda-feira: 29 de outubro de 2018, conduzida pelo Soberano Grão-Mestre
+        Manoel Oliveira Leite.
+      </p>
+    </div>
+  </section>
+
+  <section class="secao corpo" id="nautas" data-corpo="nautas">
+    <div class="container prosa">
+      <span class="sobretitulo">Ancorada à Loja de Marca · nº 36</span>
+      <h2 class="primeiro">Loja de Nautas da Arca Real Brasília</h2>
+      <p class="intro">
+        A Ordem dos Nautas da Arca Real (<em>Royal Ark Mariners</em>) é reservada aos Mestres Maçons da Marca. Sua
+        cerimônia, a Elevação, tem um sabor náutico e se baseia no relato do Dilúvio no Gênesis, com a Arca de Noé
+        como refúgio diante dos perigos da vida. Pela tradição inglesa, cada loja de Nautas é “ancorada” a uma Loja de
+        Marca, da qual recebe o número.{' '}
+        <a href=\"https://www.markmasonshall.org/orders/ram" target="_blank" rel="noopener">Saiba mais no Mark Masons' Hall</a>.
+      </p>
+      <p>
+        A Loja de Nautas Brasília está ancorada à Loja Brasília de Mestres Maçons da Marca e, por isso, leva também o
+        nº 36. As datas das suas reuniões estão no <a href="/calendario/">calendário</a>.
+      </p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .primeiro { margin-top: 0; }
+  .atalhos { display: flex; flex-wrap: wrap; gap: 0.75rem 2rem; padding-block: 1.5rem; }
+  .atalhos a { text-decoration: none; }
+  .atalhos a:hover { text-decoration: underline; }
+  .corpo { border-top: 3px solid var(--cor-corpo); }
+  .corpo .sobretitulo { color: var(--cor-corpo); }
+  .corpo h2 { color: var(--cor-corpo); }
+  .corpo summary { color: var(--cor-corpo); }
+  .intro {
+    padding-left: 1.25rem;
+    border-left: 2px solid var(--cor-corpo);
+    color: var(--texto-suave);
+  }
+</style>

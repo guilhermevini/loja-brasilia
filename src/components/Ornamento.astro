@@ -1,0 +1,29 @@
+---
+import loja from '../assets/ornamentos/loja.svg?raw';
+import pedra from '../assets/ornamentos/pedra.svg?raw';
+import geometria from '../assets/ornamentos/geometria.svg?raw';
+import compasso from '../assets/ornamentos/compasso.svg?raw';
+import mapa from '../assets/ornamentos/mapa.svg?raw';
+import pavimento from '../assets/ornamentos/pavimento.svg?raw';
+
+const desenhos = { loja, pedra, geometria, compasso, mapa, pavimento };
+export type TipoOrnamento = keyof typeof desenhos;
+
+interface Props {
+  tipo: TipoOrnamento;
+  class?: string;
+}
+
+const { tipo, class: classe } = Astro.props;
+---
+
+<span class:list={['ornamento', classe]} set:html={desenhos[tipo]} />
+
+<style>
+  .ornamento {
+    display: block;
+    pointer-events: none;
+    color: var(--azul);
+  }
+  .ornamento :global(svg) { width: 100%; height: 100%; display: block; }
+</style>

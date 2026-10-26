@@ -1,0 +1,151 @@
+---
+import Base from '../layouts/Base.astro';
+import TopoPagina from '../components/TopoPagina.astro';
+import { fundadores, primeiraAdministracao, comissaoRegularizadora, veneraveis } from '../data/historia';
+---
+
+<Base titulo="A Loja" descricao="A história da Loja Brasília nº 1693, fundada em 1967 em São Paulo por dez maçons da tradição inglesa.">
+  <TopoPagina
+    ornamento="loja"
+    sobretitulo="Nossa história"
+    titulo="Mais de cinquenta anos de trabalho regular"
+    lead="Da reunião de dez maçons em 1967 às sessões de hoje, a Loja Brasília mantém viva a forma de trabalho que seus fundadores trouxeram da maçonaria inglesa."
+  />
+
+  <section class="secao">
+    <div class="container prosa">
+      <h2>A fundação</h2>
+      <p>
+        A Loja Brasília foi fundada em 20 de novembro de 1967, numa reunião de dez maçons realizada na sede da Mútua
+        Maçônica Paulista, na Avenida Liberdade, em São Paulo. Logo na fundação, filiou-se ao Grande Oriente de São
+        Paulo, então sob o grão-mestrado de José Menezes Júnior, e ao Grande Oriente do Brasil, sob o de Álvaro
+        Pereira.
+      </p>
+      <p>
+        Nove dos fundadores vinham da Loja Campos Salles nº 5565, que trabalhava sob a Grande Loja Distrital da
+        Inglaterra, e um da Loja Evolução III, do GOSP/GOB. Por essa origem, a nova loja adotou o Ritual de Emulação,
+        do Rito Inglês, que eles já praticavam. É a forma de trabalho que a Loja mantém até hoje.
+      </p>
+
+      <h3>Os fundadores</h3>
+      <p class="nota">Por ordem de subscrição na ata de fundação.</p>
+      <ol class="fundadores">
+        {
+          fundadores.map((f) => (
+            <li>
+              <span class="nome">{f.nome}</span>
+              <span class="origem">{f.origem}</span>
+            </li>
+          ))
+        }
+      </ol>
+
+      <h2>A sagração</h2>
+      <p>
+        Entre a fundação e a sagração, a Loja funcionou em caráter provisório, com cinco reuniões no templo cedido pela
+        Loja Evolução III, na sede do GOSP. A sagração aconteceu em 27 de junho de 1968, em cerimônia no Templo
+        Piratininga, conduzida por uma comissão regularizadora nomeada pelo GOSP/GOB.
+      </p>
+      <p>
+        A sede da Loja passou depois para a Rua São Joaquim, 457, no prédio do Grande Oriente de São Paulo. Hoje a
+        Loja se reúne na Rua Augusta, 719, na Consolação.
+      </p>
+
+      <details>
+        <summary>Primeira administração (1967–1968)</summary>
+        <table class="tabela">
+          <tbody>
+            {primeiraAdministracao.map(([cargo, nome]) => <tr><td>{cargo}</td><td>{nome}</td></tr>)}
+          </tbody>
+        </table>
+      </details>
+
+      <details>
+        <summary>Comissão regularizadora da sagração</summary>
+        <table class="tabela">
+          <tbody>
+            {
+              comissaoRegularizadora.map(([cargo, nome, loja]) => (
+                <tr><td>{cargo}</td><td>{nome}<br /><small>{loja}</small></td></tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </details>
+
+      <h2>Os corpos que nasceram da Loja</h2>
+      <p>
+        Em 1974, sete membros da Loja fundaram o Capítulo Brasília de Maçons do Arco Real, reconhecido em 2007 pelo
+        Supremo Grande Capítulo do GOB. Em 2018 foi consagrada a Loja Brasília de Mestres Maçons da Marca. Os três
+        corpos compartilham o mesmo templo e boa parte dos mesmos Irmãos.
+      </p>
+      <p><a href="/corpos-associados/">Conheça os corpos associados →</a></p>
+    </div>
+  </section>
+
+  <section class="secao secao-alt" id="veneraveis">
+    <div class="container prosa">
+      <span class="sobretitulo">Galeria</span>
+      <h2>Veneráveis Mestres</h2>
+      <p>
+        Os Irmãos que ocuparam a cadeira do Rei Salomão desde a fundação, em ordem do primeiro mandato. O símbolo †
+        indica os que já partiram para o Oriente Eterno.
+      </p>
+      <table class="tabela veneraveis">
+        <thead>
+          <tr><th scope="col">Mandato</th><th scope="col">Venerável Mestre</th></tr>
+        </thead>
+        <tbody>
+          {
+            veneraveis.map((v) => (
+              <tr>
+                <td>{v.mandatos.map((m) => <span class="mandato">{m}</span>)}</td>
+                <td>
+                  {v.nome}
+                  {v.inMemoriam && <span class="memoria" title="In memoriam"> †</span>}
+                  {v.honra && <small> · Venerável de Honra</small>}
+                  {v.atual && <small class="atual"> · Venerável Mestre atual</small>}
+                </td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .nota { font-size: 0.9rem; color: var(--texto-suave); }
+  .fundadores {
+    list-style: none;
+    counter-reset: f;
+    margin: 0 0 2rem;
+    padding: 0;
+    border-top: 1px solid var(--linha);
+  }
+  .fundadores li {
+    counter-increment: f;
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--linha);
+  }
+  .fundadores li::before {
+    content: counter(f, decimal-leading-zero);
+    grid-row: span 2;
+    font-family: var(--serif);
+    color: var(--ouro);
+  }
+  .fundadores .nome { font-weight: 500; }
+  .fundadores .origem { font-size: 0.875rem; color: var(--texto-suave); }
+  small { color: var(--texto-suave); }
+  .mandato { display: block; }
+  .veneraveis td:first-child {
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+    padding-right: 2rem;
+  }
+  .memoria { color: var(--texto-suave); }
+  .atual { color: var(--ouro); font-weight: 500; }
+</style>

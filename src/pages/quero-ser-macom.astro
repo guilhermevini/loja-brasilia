@@ -1,0 +1,156 @@
+---
+import Base from '../layouts/Base.astro';
+import TopoPagina from '../components/TopoPagina.astro';
+
+const passos = [
+  ['Conversa inicial', 'Você entra em contato, conhece alguns Irmãos e tira as suas dúvidas, sem compromisso.'],
+  ['Proposta', 'Se houver interesse dos dois lados, um Mestre Maçom da Loja apresenta a sua candidatura.'],
+  ['Sindicância', 'A Loja conhece melhor o candidato por meio de entrevistas e da verificação das informações.'],
+  ['Aprovação e iniciação', 'A admissão depende do consentimento dos Irmãos. Aprovada, é marcada a cerimônia de iniciação.'],
+];
+
+const perguntas = [
+  [
+    'A Maçonaria é uma religião?',
+    'Não. A Maçonaria não substitui nenhuma religião nem tem dogmas próprios. Exige do candidato a crença em Deus, mas cada Irmão segue livremente a sua fé, e assuntos religiosos e político-partidários não são discutidos em Loja.',
+  ],
+  [
+    'A Maçonaria é secreta?',
+    'Não. É uma instituição pública, com endereço, estatuto e registro. O que se guarda com discrição são certos elementos das cerimônias, que fazem parte da experiência de quem as vive.',
+  ],
+  [
+    'Quanto tempo isso exige?',
+    'A Loja Brasília se reúne às segundas-feiras, às 19h, quase todas as semanas, com recesso em julho. A frequência é parte do compromisso: o aprendizado acontece na convivência e na prática do ritual.',
+  ],
+  [
+    'Há custos?',
+    'Sim. Há uma taxa de iniciação e mensalidades que mantêm a Loja e suas atividades. Os valores são apresentados durante as conversas iniciais.',
+  ],
+  [
+    'E se eu não moro em São Paulo?',
+    'Como a participação é presencial e frequente, o ideal é procurar uma loja perto de você. O Grande Oriente do Brasil pode indicar a mais próxima.',
+  ],
+];
+---
+
+<Base titulo="Quero ser maçom" descricao="O que é a Maçonaria, o que se espera de um candidato e como se aproximar da Loja Brasília nº 1693, em São Paulo.">
+  <TopoPagina
+    ornamento="compasso"
+    sobretitulo="Para interessados"
+    titulo="Quer se tornar maçom?"
+    lead="A Maçonaria é uma fraternidade que reúne homens livres e de bons costumes em torno do aperfeiçoamento moral, do estudo e da beneficência. Se essa ideia faz sentido para você, vamos conversar."
+  />
+
+  <section class="secao">
+    <div class="container prosa">
+      <h2 class="primeiro">O que esperamos de um candidato</h2>
+      <p>
+        Não existe um perfil único. Na Loja Brasília convivem profissionais de áreas, idades e histórias muito
+        diferentes. O que todos têm em comum é o interesse sincero em se aprimorar e a disposição de fazer isso em
+        grupo.
+      </p>
+      <ul class="requisitos">
+        <li>Ser homem, com 18 anos completos, de reputação ilibada e bons costumes.</li>
+        <li>Crer em Deus, qualquer que seja a sua religião.</li>
+        <li>Ter residência e trabalho fixos e renda que permita assumir os compromissos sem sacrificar a família.</li>
+        <li>Se for casado, contar com a concordância da esposa.</li>
+        <li>Ter tempo e disposição para participar das sessões com regularidade.</li>
+        <li>Buscar a Maçonaria por vontade própria, e não por interesse pessoal ou profissional.</li>
+      </ul>
+      <p class="fonte">
+        Requisitos conforme o{' '}
+        <a href=\"https://www.gob.org.br/como-se-tornar-macom/" target="_blank" rel="noopener">Grande Oriente do Brasil</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="secao secao-alt">
+    <div class="container">
+      <span class="sobretitulo">O caminho</span>
+      <h2 class="primeiro titulo-passos">Como funciona o ingresso</h2>
+      <ol class="passos">
+        {
+          passos.map(([titulo, texto]) => (
+            <li>
+              <h3>{titulo}</h3>
+              <p>{texto}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="secao">
+    <div class="container prosa">
+      <h2 class="primeiro">Perguntas frequentes</h2>
+      {
+        perguntas.map(([pergunta, resposta]) => (
+          <details>
+            <summary>{pergunta}</summary>
+            <p>{resposta}</p>
+          </details>
+        ))
+      }
+      <p class="gob">
+        Mora fora da capital? O{' '}
+        <a href=\"https://gobsp.org.br/interesse-em-ser-macom/" target="_blank" rel="noopener">GOB-SP</a> atende
+        interessados em todo o estado, e o{' '}
+        <a href=\"https://www.gob.org.br/como-se-tornar-macom/" target="_blank" rel="noopener">Grande Oriente do Brasil</a>,
+        nas demais unidades da federação.
+      </p>
+    </div>
+  </section>
+
+  <section class="secao secao-alt">
+    <div class="container prosa chamada">
+      <h2 class="primeiro">Dê o primeiro passo</h2>
+      <p>Mora em São Paulo e quer conhecer a Loja Brasília? Entre em contato e marcamos uma conversa.</p>
+      <a class="botao" href="/contato/">Entrar em contato</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .primeiro { margin-top: 0; }
+  .requisitos { list-style: none; padding: 0; margin: 2rem 0 0; border-top: 1px solid var(--linha); }
+  .requisitos li {
+    padding: 0.9rem 0 0.9rem 1.75rem;
+    border-bottom: 1px solid var(--linha);
+    position: relative;
+  }
+  .requisitos li::before {
+    content: '';
+    position: absolute;
+    left: 0.2rem;
+    top: 1.6rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    border: 1.5px solid var(--ouro);
+    transform: rotate(45deg);
+  }
+  .titulo-passos { margin-bottom: 3rem; }
+  .passos {
+    list-style: none;
+    counter-reset: p;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  }
+  .passos li { counter-increment: p; border-top: 2px solid var(--azul); padding-top: 1.25rem; }
+  .passos li::before {
+    content: counter(p, decimal-leading-zero);
+    font-family: var(--serif);
+    color: var(--ouro);
+    font-size: 0.95rem;
+  }
+  .passos h3 { margin-top: 0.4rem; }
+  .passos p { color: var(--texto-suave); font-size: 0.95rem; margin: 0; }
+  details { margin-block: 0; border-top: 0; }
+  details:first-of-type { border-top: 1px solid var(--linha); }
+  details p { margin: 0; color: var(--texto-suave); }
+  .gob { margin-top: 2.5rem; font-size: 0.95rem; }
+  .fonte { margin-top: 1.25rem; font-size: 0.85rem; color: var(--texto-suave); }
+</style>

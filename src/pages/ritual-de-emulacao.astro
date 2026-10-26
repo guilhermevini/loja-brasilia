@@ -1,0 +1,162 @@
+---
+import Base from '../layouts/Base.astro';
+import TopoPagina from '../components/TopoPagina.astro';
+import { Image } from 'astro:assets';
+import grandTempleNoite from '../assets/fotos/grand-temple-noite.jpg';
+import grandTemple from '../assets/fotos/grand-temple.webp';
+
+const marcos = [
+  ['1717', 'Quatro lojas de Londres fundam a primeira Grande Loja, mais tarde chamada dos “Modernos”.'],
+  ['1751', 'Surge uma Grande Loja rival, a dos “Antigos”, fiel a usos que considerava mais tradicionais.'],
+  ['1813', 'As duas Grandes Lojas se unem e formam a Grande Loja Unida da Inglaterra.'],
+  ['1816', 'A Grande Loja aprova a forma de ritual demonstrada pela Loja da Reconciliação.'],
+  ['1823', 'É fundada a Emulation Lodge of Improvement, em Londres.'],
+  ['1969', 'Primeira edição impressa do ritual autorizada pelo Comitê da Emulação.'],
+];
+---
+
+<Base titulo="Ritual de Emulação" descricao="A origem do Ritual de Emulação, praticado pela Loja Brasília nº 1693, e da Grande Loja Unida da Inglaterra.">
+  <TopoPagina
+    foto={grandTempleNoite}
+    legendaFoto="Grand Temple, Freemasons' Hall, Londres"
+    sobretitulo="Nossa forma de trabalho"
+    titulo="O Ritual de Emulação"
+    lead="Uma das formas de trabalho mais difundidas da maçonaria inglesa, ensinada sem interrupção desde 1823 e guardada com rigor por um comitê dedicado a ela."
+  />
+
+  <section class="secao">
+    <div class="container prosa">
+      <h2>Duas Grandes Lojas, uma só Maçonaria</h2>
+      <p>
+        Em 24 de junho de 1717, quatro lojas de Londres reuniram-se na taverna Goose and Gridiron e fundaram a
+        primeira Grande Loja do mundo, elegendo Anthony Sayer como Grão-Mestre. Poucos anos depois, em 1723, o
+        Reverendo James Anderson publicou as Constituições que levam o seu nome.
+      </p>
+      <p>
+        Nem todas as lojas inglesas aceitaram as mudanças introduzidas pela nova Grande Loja. Em 1751, maçons que se
+        consideravam guardiões dos usos tradicionais fundaram uma Grande Loja rival. Passaram a ser chamados de{' '}
+        <em>Antigos</em>, e os membros da Grande Loja de 1717, de <em>Modernos</em>.
+      </p>
+      <p>
+        Por mais de meio século as duas conviveram com práticas diferentes. A aproximação começou em 1809, quando os
+        Modernos criaram a Loja da Promulgação para estudar os landmarks e preparar a convergência dos rituais. Em
+        1813, dois irmãos de sangue, filhos do rei George III, ocupavam os grão-mestrados rivais: o Duque de Sussex,
+        dos Modernos, e o Duque de Kent, dos Antigos. Sob a liderança deles, a união foi celebrada em 27 de dezembro
+        de 1813, e nasceu a <strong>Grande Loja Unida da Inglaterra</strong>, com o Duque de Sussex como seu primeiro
+        Grão-Mestre.
+      </p>
+
+      <figure class="figura">
+        <Image
+          src={grandTemple}
+          alt="O Grand Temple do Freemasons' Hall, em Londres, com o pavimento mosaico no eixo central e o trono do Grão-Mestre ao fundo"
+          width={1920}
+          widths={[640, 960, 1280, 1920]}
+          sizes="(max-width: 60rem) 100vw, 60rem"
+        />
+        <figcaption>
+          O Grand Temple do Freemasons' Hall, na Great Queen Street, sede da Grande Loja Unida da Inglaterra e da
+          Emulation Lodge of Improvement.
+        </figcaption>
+      </figure>
+
+      <h2>A Loja da Reconciliação</h2>
+      <p>
+        Faltava harmonizar o ritual. Essa tarefa coube à Loja da Reconciliação, formada por membros das duas
+        tradições. O trabalho foi feito inteiramente de forma oral: não se lavraram atas nem se permitiram anotações.
+        Durante três anos a Loja demonstrou as cerimônias às lojas de Londres e arredores, até que, em junho de 1816,
+        a Grande Loja aprovou a forma apresentada.
+      </p>
+
+      <h2>A Emulation Lodge of Improvement</h2>
+      <p>
+        Em 2 de outubro de 1823, Irmãos ligados às lojas de instrução Burlington e Perseverance reuniram-se pela
+        primeira vez na <em>Emulation Lodge of Improvement for Master Masons</em>. O objetivo era instruir Mestres
+        Maçons que se preparavam para os cargos da loja e para a cadeira de Venerável. Como vários de seus fundadores
+        tinham convivido com a Loja da Reconciliação, a nova loja de instrução herdou uma linha quase ininterrupta
+        de transmissão do ritual de 1816.
+      </p>
+      <p>Dois traços distinguem a Emulação das demais formas de trabalho inglesas:</p>
+      <ul>
+        <li>é demonstrada sem interrupção desde 1823, até hoje;</li>
+        <li>
+          tem, desde a origem, um comitê cuja função é preservar a sua exatidão. O comitê entende que não tem
+          autoridade para alterar o ritual e só incorpora mudanças determinadas pela própria Grande Loja.
+        </li>
+      </ul>
+      <p>
+        Por mais de um século o comitê não autorizou nenhuma versão impressa: o ritual era transmitido pela memória
+        dos Irmãos que conduziam as sessões de instrução. A primeira edição autorizada só foi publicada em 1969.
+      </p>
+      <p>
+        A Emulation Lodge of Improvement continua a se reunir no Freemasons' Hall, na Great Queen Street, em Londres,
+        às sextas-feiras, de outubro a junho.
+      </p>
+
+      <blockquote>“Enquanto houver demanda, a Loja de Emulação vai continuar a atendê-la.”<br /><small>Graham Redman</small></blockquote>
+
+      <h2>A Emulação na Loja Brasília</h2>
+      <p>
+        A Loja Brasília pratica a Emulação desde a fundação, herança dos nove fundadores que vinham da Loja Campos
+        Salles nº 5565, da Grande Loja Unida da Inglaterra. Isso significa trabalhar com um ritual preciso, conduzido
+        de memória, em que cada oficial conhece o seu papel. A progressão pelos cargos, até a cadeira de Venerável
+        Mestre, faz parte da formação de cada Irmão.
+      </p>
+      <p>
+        A ligação com a Inglaterra vai além do ritual. O Grande Oriente do Brasil, ao qual a Loja é federada, é
+        reconhecido pela <a href="https://www.ugle.org.uk/" target="_blank" rel="noopener">Grande Loja Unida da
+        Inglaterra</a>, a mais antiga Grande Loja do mundo e referência de regularidade maçônica.
+      </p>
+    </div>
+  </section>
+
+  <section class="secao faixa-azul">
+    <div class="container">
+      <span class="sobretitulo">Linha do tempo</span>
+      <h2 class="titulo-linha">Marcos da maçonaria inglesa</h2>
+      <ol class="linha">
+        {marcos.map(([ano, texto]) => <li><span class="ano">{ano}</span><p>{texto}</p></li>)}
+      </ol>
+    </div>
+  </section>
+
+  <section class="secao">
+    <div class="container prosa">
+      <h2>Para aprofundar</h2>
+      <ul class="livros">
+        <li><em>Emulation Working Today</em>, Graham Redman</li>
+        <li><em>Emulation Working Explained</em>, Herbert F. Inman</li>
+        <li><em>O Ofício do Maçom</em> (<em>The Freemason at Work</em>), Harry Carr</li>
+        <li><em>A Maçonaria Inglesa no Brasil</em>, Fábio Mendes</li>
+      </ul>
+      <p class="nota">
+        Texto baseado em trabalhos do Ir. Hercule Spoladore (Loja de Pesquisas Maçônicas “Brasil”, Londrina) e em{' '}
+        <em>Emulation Working Today</em>, de Graham Redman.
+      </p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .container.prosa > .figura { max-width: 60rem; margin: 3rem 0; }
+  .figura img { width: 100%; border-radius: var(--raio); box-shadow: 0 24px 60px -32px rgb(20 50 93 / 0.45); }
+  .figura figcaption { margin-top: 0.9rem; font-size: 0.85rem; color: var(--texto-suave); max-width: var(--largura-texto); }
+  ul { padding-left: 1.2rem; }
+  li { margin-bottom: 0.5rem; }
+  blockquote small { font-family: var(--sans); font-style: normal; font-size: 0.85rem; color: var(--texto-suave); }
+  .titulo-linha { margin-top: 0; margin-bottom: 3rem; }
+  .linha {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  }
+  .linha li { border-top: 1px solid rgb(255 255 255 / 0.3); padding-top: 1rem; margin: 0; }
+  .ano { font-family: var(--serif); font-size: 1.75rem; color: #fff; }
+  .linha p { margin: 0.25rem 0 0; color: rgb(255 255 255 / 0.75); font-size: 0.95rem; }
+  .livros { list-style: none; padding: 0; }
+  .livros li { padding: 0.75rem 0; border-bottom: 1px solid var(--linha); margin: 0; }
+  .nota { margin-top: 2rem; font-size: 0.875rem; color: var(--texto-suave); }
+</style>

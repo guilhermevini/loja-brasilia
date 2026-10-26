@@ -1,0 +1,17 @@
+---
+import Base from '../layouts/Base.astro';
+import TopoPagina from '../components/TopoPagina.astro';
+---
+
+<Base titulo="Página não encontrada">
+  <TopoPagina
+    sobretitulo="Erro 404"
+    titulo="Página não encontrada"
+    lead="O endereço que você procurou não existe ou mudou de lugar. O site da Loja foi renovado e algumas páginas antigas deixaram de existir."
+  />
+  <section class="secao">
+    <div class="container">
+      <a class="botao" href="/">Voltar ao início</a>
+    </div>
+  </section>
+</Base>

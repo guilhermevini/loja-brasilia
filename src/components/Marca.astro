@@ -1,0 +1,28 @@
+---
+---
+
+<span class="marca">
+  <img class="brasao" src="/logo-brasilia.svg" alt="" width="341" height="444" />
+  <span class="texto">
+    <span class="nome">Loja Brasília</span>
+    <span class="numero">nº 1693 · GOB-SP</span>
+  </span>
+</span>
+
+<style>
+  .marca {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--azul);
+  }
+  .brasao { width: auto; height: 3.25rem; flex: none; }
+  .texto { display: flex; flex-direction: column; line-height: 1.15; }
+  .nome { font-family: var(--serif); font-size: 1.25rem; font-weight: 500; }
+  .numero {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+  }
+</style>

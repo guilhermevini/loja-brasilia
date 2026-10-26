@@ -1,0 +1,81 @@
+---
+import { site, nav, links } from '../data/site';
+---
+
+<footer class="rodape">
+  <div class="faixa-mosaico" aria-hidden="true"></div>
+  <div class="container grade-rodape">
+    <div>
+      <p class="nome">{site.nomeCompleto}</p>
+      <p class="suave">Fundada em 20 de novembro de 1967.<br />Federada ao Grande Oriente do Brasil.</p>
+    </div>
+    <div>
+      <p class="titulo">Endereço</p>
+      <p class="suave">
+        {site.endereco.linha1}<br />
+        {site.endereco.linha2}
+      </p>
+      <a href={site.endereco.mapa} target="_blank" rel="noopener">Ver no mapa</a>
+    </div>
+    <nav aria-label="Rodapé">
+      <p class="titulo">Navegação</p>
+      <ul>
+        {nav.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+      </ul>
+    </nav>
+    <div>
+      <p class="titulo">Links</p>
+      <ul>
+        {links.map((l) => <li><a href={l.href} target="_blank" rel="noopener">{l.label}</a></li>)}
+      </ul>
+    </div>
+  </div>
+  <div class="container base">
+    <p>© {new Date().getFullYear()} {site.nome}</p>
+  </div>
+</footer>
+
+<style>
+  .rodape {
+    background: var(--azul);
+    color: rgb(255 255 255 / 0.85);
+    font-size: 0.925rem;
+  }
+  .faixa-mosaico {
+    height: 1.5rem;
+    margin-bottom: 4rem;
+    background: repeating-conic-gradient(#fff 0 25%, transparent 0 50%) 0 0 / 1.5rem 1.5rem;
+    opacity: 0.16;
+  }
+  .grade-rodape {
+    display: grid;
+    gap: 2.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  }
+  .nome {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    color: #fff;
+    max-width: 20rem;
+  }
+  .titulo {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ouro);
+    margin-bottom: 0.75rem;
+  }
+  .suave { color: rgb(255 255 255 / 0.7); }
+  a { color: #fff; text-decoration-color: rgb(255 255 255 / 0.3); }
+  a:hover { text-decoration-color: #fff; }
+  ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.35rem; }
+  .base {
+    margin-top: 3rem;
+    padding-block: 1.5rem;
+    border-top: 1px solid rgb(255 255 255 / 0.12);
+    font-size: 0.8rem;
+    color: rgb(255 255 255 / 0.55);
+  }
+  .base p { margin: 0; }
+</style>

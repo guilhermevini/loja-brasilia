@@ -1,0 +1,72 @@
+---
+import Base from '../layouts/Base.astro';
+import TopoPagina from '../components/TopoPagina.astro';
+import { site } from '../data/site';
+---
+
+<Base titulo="Contato" descricao="Endereço, dia das sessões e contato da Loja Brasília nº 1693, na Rua Augusta, em São Paulo.">
+  <TopoPagina
+    ornamento="mapa"
+    sobretitulo="Contato e visitas"
+    titulo="Venha nos conhecer"
+    lead="Recebemos com prazer Irmãos visitantes e pessoas interessadas em conhecer a Maçonaria. Combine a sua visita com antecedência."
+  />
+
+  <section class="secao">
+    <div class="container blocos">
+      <div class="bloco">
+        <span class="sobretitulo">Endereço</span>
+        <p class="destaque">
+          {site.endereco.linha1}<br />
+          {site.endereco.linha2}
+        </p>
+        <a class="botao botao-contorno" href={site.endereco.mapa} target="_blank" rel="noopener">Abrir no mapa</a>
+      </div>
+
+      <div class="bloco">
+        <span class="sobretitulo">Sessões</span>
+        <p class="destaque">{site.sessoes}, às {site.horario}</p>
+        <p class="suave">Recesso em julho. Confirme a data antes da visita.</p>
+        <a class="botao botao-contorno" href="/calendario/">Ver calendário</a>
+      </div>
+
+      {
+        site.email && (
+          <div class="bloco">
+            <span class="sobretitulo">E-mail</span>
+            <p class="destaque"><a href={`mailto:${site.email}`}>{site.email}</a></p>
+          </div>
+        )
+      }
+    </div>
+  </section>
+
+  <section class="secao secao-alt">
+    <div class="container prosa">
+      <h2 class="primeiro">Irmãos visitantes</h2>
+      <p>
+        Maçons regulares são sempre bem-vindos às nossas sessões, que começam às {site.horario}. Para que possamos
+        recebê-lo adequadamente, entre em contato antes e informe a sua loja e potência. No dia, traga o seu avental e
+        a carteira da potência regular a que pertence, ou alinhe a sua visita previamente com o Venerável Mestre.
+      </p>
+
+      <h2>Interessados em ingressar</h2>
+      <p>
+        Se você ainda não é maçom e quer saber mais, comece pela página <a href="/quero-ser-macom/">Quero ser maçom</a>.
+        Lá explicamos o que esperamos de um candidato e como funciona o processo de ingresso.
+      </p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .blocos {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  }
+  .bloco { border-top: 2px solid var(--azul); padding-top: 1.25rem; }
+  .destaque { font-family: var(--serif); font-size: 1.35rem; color: var(--azul); line-height: 1.4; }
+  .suave { color: var(--texto-suave); font-size: 0.95rem; }
+  .primeiro { margin-top: 0; }
+</style>
