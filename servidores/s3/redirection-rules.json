@@ -1,0 +1,110 @@
+[
+  {
+    "Condition": {
+      "KeyPrefixEquals": "sobre-a-maconaria/historia-da-loja-brasilia/"
+    },
+    "Redirect": {
+      "ReplaceKeyWith": "a-loja/",
+      "HttpRedirectCode": "301"
+    }
+  },
+  {
+    "Condition": {
+      "KeyPrefixEquals": "bem-vindo/veneraveis-passados-da-loja-brasilia/"
+    },
+    "Redirect": {
+      "ReplaceKeyWith": "a-loja/",
+      "HttpRedirectCode": "301"
+    }
+  },
+  {
+    "Condition": {
+      "KeyPrefixEquals": "o-ritual-de-emulacao/"
+    },
+    "Redirect": {
+      "ReplaceKeyWith": "ritual-de-emulacao/",
+      "HttpRedirectCode": "301"
+    }
+  },
+  {
+    "Condition": {
+      "KeyPrefixEquals": "a-grande-loja-unida-da-inglaterra/"
+    },
+    "Redirect": {
+      "ReplaceKeyWith": "ritual-de-emulacao/",
+      "HttpRedirectCode": "301"
+    }
+  },
+  {
+    "Condition": {
+      "KeyPrefixEquals": "arco-real-e-marca/"
+    },
+    "Redirect": {
+      "ReplaceKeyWith": "corpos-associados/",
+      "HttpRedirectCode": "301"
+    }
+  },
+  {
+    "Condition": {
+      "KeyPrefixEquals": "membros/referencias/aprendizes/capitulo/"
+    },
+    "Redirect": {
+      "ReplaceKeyWith": "corpos-associados/",
+      "HttpRedirectCode": "301"
+    }
+  },
+  {
+    "Condition": {
+      "KeyPrefixEquals": "info/lbmmm/"
+    },
+    "Redirect": {
+      "ReplaceKeyWith": "corpos-associados/",
+      "HttpRedirectCode": "301"
+    }
+  },
+  {
+    "Condition": {
+      "KeyPrefixEquals": "sobre-a-maconaria/quer-se-tornar-um-macom/"
+    },
+    "Redirect": {
+      "ReplaceKeyWith": "quero-ser-macom/",
+      "HttpRedirectCode": "301"
+    }
+  },
+  {
+    "Condition": {
+      "KeyPrefixEquals": "sobre-a-maconaria/"
+    },
+    "Redirect": {
+      "ReplaceKeyWith": "a-loja/",
+      "HttpRedirectCode": "301"
+    }
+  },
+  {
+    "Condition": {
+      "KeyPrefixEquals": "bem-vindo/"
+    },
+    "Redirect": {
+      "ReplaceKeyWith": "",
+      "HttpRedirectCode": "301"
+    }
+  },
+  {
+    "Condition": {
+      "KeyPrefixEquals": "login/"
+    },
+    "Redirect": {
+      "ReplaceKeyWith": "",
+      "HttpRedirectCode": "301"
+    }
+  },
+  {
+    "Condition": {
+      "KeyPrefixEquals": "index.php/"
+    },
+    "Redirect": {
+      "ReplaceKeyWith": "",
+      "HttpRedirectCode": "301"
+    }
+  }
+]

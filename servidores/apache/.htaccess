@@ -1,0 +1,21 @@
+# Gerado por scripts/servidores.py a partir de public/_redirects. Não edite à mão.
+
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^sobre-a-maconaria/historia-da-loja-brasilia(/.*)?$ /a-loja/ [R=301,L,NE]
+  RewriteRule ^bem-vindo/veneraveis-passados-da-loja-brasilia(/.*)?$ /a-loja/#veneraveis [R=301,L,NE]
+  RewriteRule ^o-ritual-de-emulacao(/.*)?$ /ritual-de-emulacao/ [R=301,L,NE]
+  RewriteRule ^a-grande-loja-unida-da-inglaterra(/.*)?$ /ritual-de-emulacao/ [R=301,L,NE]
+  RewriteRule ^arco-real-e-marca(/.*)?$ /corpos-associados/ [R=301,L,NE]
+  RewriteRule ^membros/referencias/aprendizes/capitulo(/.*)?$ /corpos-associados/#arco-real [R=301,L,NE]
+  RewriteRule ^info/lbmmm(/.*)?$ /corpos-associados/#marca [R=301,L,NE]
+  RewriteRule ^sobre-a-maconaria/quer-se-tornar-um-macom(/.*)?$ /quero-ser-macom/ [R=301,L,NE]
+  RewriteRule ^sobre-a-maconaria(/.*)?$ /a-loja/ [R=301,L,NE]
+  RewriteRule ^bem-vindo(/.*)?$ / [R=301,L,NE]
+  RewriteRule ^login(/.*)?$ / [R=301,L,NE]
+  RewriteRule ^index\.php(/.*)?$ / [R=301,L,NE]
+</IfModule>
