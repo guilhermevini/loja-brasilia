@@ -34,6 +34,9 @@ Site estático da Loja Brasília nº 1693 (GOB-SP) em Astro. Instruções de bui
 
 ## Publicação
 
+- Para entregar o site à hospedagem, faça o commit e rode `python3 scripts/pacote.py`. Ele gera o
+  `loja-brasilia-site-AAAA-MM-DD.zip` em `~/Downloads` (pasta `site/`, `servidores/` e `LEIA-ME.txt`, modelo em
+  `scripts/LEIA-ME.txt`). Não zipe o `dist/` solto.
 - A hospedagem definitiva ainda não foi escolhida (Cloudflare, S3, Apache ou nginx). O projeto tem configuração pronta
   para todas; não trate nenhuma como padrão.
 - O deploy no Cloudflare Workers (`npm run deploy`) foi usado só para testes. Antes de rodá-lo, confirme com

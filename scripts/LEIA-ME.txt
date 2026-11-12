@@ -1,0 +1,30 @@
+Site da Loja Brasília nº 1693 — arquivos prontos para publicar
+Gerado em {data} (commit {commit})
+
+O site é 100% estático (HTML, CSS, imagens e fontes). Não precisa de PHP,
+Node.js nem banco de dados.
+
+1. Envie o CONTEÚDO da pasta "site/" para a raiz do site (o index.html
+   deve ficar na raiz).
+
+2. Configure na hospedagem:
+   - Página padrão: index.html
+   - Página de erro: 404.html
+   - Redirecionamentos das URLs antigas do WordPress (opcional, mas
+     recomendado), já prontos em "servidores/":
+
+   Apache  -> copie servidores/apache/.htaccess para a raiz do site, ao lado
+              do index.html (requer mod_rewrite e AllowOverride All).
+   nginx   -> inclua servidores/nginx/loja-brasilia.conf no bloco "server" e
+              ajuste a linha "root" para a pasta onde ficou o site.
+   Amazon S3 -> Static website hosting: index document index.html, error
+              document 404.html; em Redirection rules, cole o conteúdo de
+              servidores/s3/redirection-rules.json. O bucket precisa
+              permitir leitura pública.
+   Cloudflare -> o arquivo site/_redirects já é lido automaticamente.
+              O R2 sozinho não entrega index.html em endereços como
+              /a-loja/; use Cloudflare Workers ou Pages.
+
+O arquivo _redirects é ignorado sem problema fora do Cloudflare/Netlify.
+O site está configurado para o domínio https://lojabrasilia.com.br. Se for
+publicado em outro domínio, avise para gerarmos os arquivos de novo.
