@@ -2,6 +2,8 @@
 import Base from '../layouts/Base.astro';
 import TopoPagina from '../components/TopoPagina.astro';
 import { fundadores, primeiraAdministracao, comissaoRegularizadora, veneraveis } from '../data/historia';
+import { Image } from 'astro:assets';
+import sagracao2026 from '../assets/fotos/sagracao-templo-2026.jpg';
 ---
 
 <Base titulo="A Loja" descricao="A história da Loja Brasília nº 1693, fundada em 1967 em São Paulo por dez maçons da tradição inglesa.">
@@ -47,8 +49,8 @@ import { fundadores, primeiraAdministracao, comissaoRegularizadora, veneraveis }
         Piratininga, conduzida por uma comissão regularizadora nomeada pelo GOSP/GOB.
       </p>
       <p>
-        A sede da Loja passou depois para a Rua São Joaquim, 457, no prédio do Grande Oriente de São Paulo. Hoje a
-        Loja se reúne na Rua Augusta, 719, na Consolação.
+        A sede da Loja passou depois para a Rua São Joaquim, 457, no prédio do Grande Oriente de São Paulo. Até 2026,
+        a Loja se reuniu na Rua Augusta, 719, na Consolação.
       </p>
 
       <details>
@@ -72,6 +74,23 @@ import { fundadores, primeiraAdministracao, comissaoRegularizadora, veneraveis }
           </tbody>
         </table>
       </details>
+
+      <h3>Sagração do Templo Antonio Bento de Souza e Castro</h3>
+      <p>
+        Em 10 de novembro de 2026, os Irmãos da Loja Brasília reuniram-se com os da Loja Piratininga nº 0140 em Sessão
+        Magna para a sagração do Templo “Antonio Bento de Souza e Castro”, na Rua Genebra, em São Paulo. A cerimônia
+        foi conduzida por uma comissão nomeada pelo Grão-Mestre do GOB-SP. A partir de 2027, é nesse templo que a Loja
+        Brasília passará a se reunir.
+      </p>
+      <figure class="foto">
+        <Image
+          src={sagracao2026}
+          alt="Irmãos das Lojas Piratininga e Brasília reunidos, de avental, diante do pavimento mosaico do templo, após a Sessão Magna de Sagração"
+          widths={[640, 960, 1280, 1600]}
+          sizes="(max-width: 72rem) 100vw, 72rem"
+        />
+        <figcaption>Sessão Magna de Sagração do Templo “Antonio Bento de Souza e Castro”, em 10 de novembro de 2026.</figcaption>
+      </figure>
 
       <h2>Os corpos que nasceram da Loja</h2>
       <p>
@@ -117,6 +136,18 @@ import { fundadores, primeiraAdministracao, comissaoRegularizadora, veneraveis }
 
 <style>
   .nota { font-size: 0.9rem; color: var(--texto-suave); }
+  .container.prosa > .foto { max-width: none; margin: 2rem 0 2.5rem; }
+  .foto img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--raio);
+    box-shadow: 0 24px 60px -32px rgb(20 50 93 / 0.45);
+  }
+  .foto figcaption {
+    margin-top: 0.9rem;
+    font-size: 0.85rem;
+    color: var(--texto-suave);
+  }
   .fundadores {
     list-style: none;
     counter-reset: f;

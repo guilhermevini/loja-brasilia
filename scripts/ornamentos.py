@@ -64,7 +64,7 @@ ec.append(perna(196, 66, 104, 300, 14) + perna(204, 66, 296, 300, 14))
 ec.append('<path d="M104 300l-6 22M296 300l6 22"/>')
 open(f'{out}/compasso.svg', 'w').write(svg(''.join(ec)))
 
-# Contato: mapa estilizado com a Rua Augusta na diagonal e um marcador
+# Contato: mapa estilizado com uma rua na diagonal e um marcador
 m = []
 for i in range(0, 401, 50):
     m.append(f'<path d="M{i} 0V400" stroke-dasharray="3 5"/>')

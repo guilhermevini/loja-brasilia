@@ -4,9 +4,9 @@ export const site = {
   descricao:
     'Loja maçônica em São Paulo, fundada em 1967, que trabalha no Ritual de Emulação do Rito Inglês. Federada ao Grande Oriente do Brasil.',
   endereco: {
-    linha1: 'Rua Augusta, 719 – Sobreloja',
-    linha2: 'Consolação, São Paulo – SP',
-    mapa: 'https://www.google.com/maps/search/?api=1&query=Rua+Augusta+719+Consola%C3%A7%C3%A3o+S%C3%A3o+Paulo',
+    linha1: 'Rua Genebra, 278 – 4º andar',
+    linha2: 'São Paulo – SP · CEP 01316-010',
+    mapa: 'https://www.google.com/maps/search/?api=1&query=Rua+Genebra+278+S%C3%A3o+Paulo',
   },
   sessoes: 'Segundas-feiras',
   horario: '19h',
